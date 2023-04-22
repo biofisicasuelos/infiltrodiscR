@@ -11,6 +11,7 @@
 #' volume = c(95, 89, 86, 83, 80, 77, 74, 73, 71, 69, 67,
 #'            83, 77, 64, 61, 58, 45, 42, 35, 29, 17, 15)))
 
+library(tidyverse)
 
 infiltration <- function(dataset, col_name, ...) {
   dataset %>%
