@@ -2,16 +2,25 @@
 % Please edit documentation in R/infiltration.R
 \name{infiltration}
 \alias{infiltration}
-\title{Cumulative infiltration and sqrt of time}
+\title{Cumulative infiltration and sqrt of time
+Using time and volume from field spreadsheets, the
+Cumulative infiltration and sqrt of time are calculated}
 \usage{
 infiltration(dataset, col_name, ...)
+}
+\arguments{
+\item{dataset}{tibble or dataset}
+
+\item{col_name}{including time and volume}
 }
 \value{
 A tibble giving three new columns: sqrt_time,
 volume_infiltrated and infiltration
 }
 \description{
-Using
+Cumulative infiltration and sqrt of time
+Using time and volume from field spreadsheets, the
+Cumulative infiltration and sqrt of time are calculated
 }
 \examples{
 infiltration(tibble(time = c(0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300,

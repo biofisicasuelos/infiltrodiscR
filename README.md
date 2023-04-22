@@ -30,7 +30,7 @@ This function returns the parameter *A* calculated from the equation proposed by
 
 ## Tutorial
 
-To determine the unsaturated hydraulic conductivity at specific suctions, the Minidisc Infiltrometer data can be fitted to the method proposed by Zhang (1997). The first step is to calculate the cumulative infiltration vs. the square root of time.
+### Step 1. To determine the unsaturated hydraulic conductivity at specific suctions, the Minidisc Infiltrometer data can be fitted to the method proposed by Zhang (1997). The first step is to calculate the cumulative infiltration vs. the square root of time.
 
 
 ``` r
@@ -44,10 +44,13 @@ infiltration_data <- tibble(
              83, 77, 64, 61, 58, 45, 42, 35, 29, 17, 15)
 )
 
+infilt_cum_sqrt <-
 infiltration_data %>% 
 group_by(soil) %>% 
 nest() %>% 
-mutate(data = map(data, ~ infiltration(.), data = .x)) 
+mutate(data = map(data, ~ infiltration(.), data = .x)) %>% 
+unnest(cols = data)
 
+infilt_cum_sqrt 
 ```
 

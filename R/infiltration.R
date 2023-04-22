@@ -1,7 +1,9 @@
 #' Cumulative infiltration and sqrt of time
-#'
 #' Using time and volume from field spreadsheets, the
 #' Cumulative infiltration and sqrt of time are calculated
+#'
+#' @param  dataset tibble or dataset
+#' @param  col_name including time and volume
 #'
 #' @return A tibble giving three new columns: sqrt_time,
 #'    volume_infiltrated and infiltration
@@ -12,16 +14,13 @@
 #' volume = c(95, 89, 86, 83, 80, 77, 74, 73, 71, 69, 67,
 #'            83, 77, 64, 61, 58, 45, 42, 35, 29, 17, 15)))
 
-library(tidyverse)
-
 infiltration <- function(dataset, col_name, ...) {
+  library(tidyverse)
   dataset %>%
     mutate(sqrt_time = round(sqrt(time),2),
           volume_infiltrated = round(first(volume) - volume, 2),
           infiltration = round(volume_infiltrated / (pi * 2.25 ^ 2),2))
 }
-
-
 
 
 
