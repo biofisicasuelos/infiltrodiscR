@@ -54,3 +54,49 @@ unnest(cols = data)
 infilt_cum_sqrt 
 ```
 
+### Step 2. Now thee Van Genuchten parameters n, alpha and A are extracted from the Minidisk Infiltrometer Table (Decagon Devices, Inc., 2005). The radius (2.25 cm) corresponds to the Minidisk Infiltrometer specs. 
+
+``` r
+parameters <- vg_par(texture = c("clay", "sand"),
+                     suction = c("2cm", "3cm"))
+
+infilt_cum_sqrt_par <-
+infiltration_data %>% 
+group_by(soil) %>% 
+nest() %>% 
+mutate(data = map(data, ~ infiltration(.), data = .x)) %>% 
+bind_cols(parameters)
+
+infilt_cum_sqrt_par
+```
+### Step 3. The hydraulic conductivity of the soil K at a specific suctions is calculated as: K(h) = C1 / A. Parameter C1 is calculated fitting a polynomial function of the second degree (y = ax2+b), where a is parameter C1, x is the square root of time and y is the cumulative infiltration. For this step, we use the package broom and base R. 
+
+``` r
+library(broom)
+infilt_cum_sqrt_par_fit <-
+infilt_cum_sqrt_par %>% 
+  mutate(
+    fit = map(data, ~ lm(infiltration ~ poly(sqrt_time, 2, raw = TRUE), data = .x)),
+    tidied = map(fit, tidy)
+  ) %>% 
+  unnest(tidied) %>% 
+filter(term == "poly(sqrt_time, 2, raw = TRUE)2")
+  
+infilt_cum_sqrt_par_fit
+```
+The column `estimate` corresponds to the parameter C1
+
+``` r
+infilt_cum_sqrt_par_fit <-
+infilt_cum_sqrt_par_fit %>% 
+rename(C1 = estimate)
+```
+
+### Step 4. The hydraulic conductivity of the soil K at a specific suctions is calculated as: K(h) = C1 / A. Parameter C1 is already calculated, and parameter A is calculated using the function. 
+
+``` r
+parameter_A(infilt_cum_sqrt_par_fit) %>% 
+ mutate(K_h = C1 / parameter_A)
+```
+
+You can check that the values of A from the equation and the table are equivalent. 

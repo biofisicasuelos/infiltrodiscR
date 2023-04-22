@@ -16,7 +16,7 @@
 
 vg_par <- function(suction, texture,...) {
   library(tidyverse)
-  vg_parameters_bytexture_radius2.25 %>%
+  vg_parameters_bytexture %>%
     pivot_longer(`0.5cm`:`7cm`,
                  names_to = "suction",
                  values_to = "value_A") %>%
