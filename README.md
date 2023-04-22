@@ -36,7 +36,7 @@ To determine the unsaturated hydraulic conductivity at specific suctions, the Mi
 ``` r
 library(tidyverse)
 library(infiltrodiscR)
-## infiltration_data <- tibble(
+infiltration_data <- tibble(
   soil = c(rep("soil_a",11), rep("soil_b",11)),
   time = c(0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300,
            0, 35, 65, 95, 125, 155, 185, 215, 245, 275, 305),
@@ -48,5 +48,6 @@ infiltration_data %>%
 group_by(soil) %>% 
 nest() %>% 
 mutate(data = map(data, ~ infiltration(.), data = .x)) 
+
 ```
 
