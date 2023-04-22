@@ -1,5 +1,5 @@
 Package: infiltrodiscR
-Title: InfiltrodicR: functions for Minidisc Infiltrometer device data
+Title: InfiltrodiscR: functions for Minidisc Infiltrometer device data
 Version: 0.0.0.9000
 Authors@R: 
     person("Sara", "Acevedo", "seaceved@uc.cl", role = c("aut", "cre"),

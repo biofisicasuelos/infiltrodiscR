@@ -1,6 +1,7 @@
 #' Cumulative infiltration and sqrt of time
 #'
-#' Using
+#' Using time and volume from field spreadsheets, the
+#' Cumulative infiltration and sqrt of time are calculated
 #'
 #' @return A tibble giving three new columns: sqrt_time,
 #'    volume_infiltrated and infiltration
