@@ -1,0 +1,82 @@
+# Data from New-Minidisk-Infiltrometer-Macro  -----------------------------
+
+# Data just for radius 2.25cm ---------------------------------------------
+
+vg_parameters_bytexture_radius2.25 <- tribble(
+  ~"texture",~"alpha",~"n_ho",~"0.5cm",~"1cm",~"2cm",~"3cm",~"4cm",~"5cm",~"6cm",~"7cm",
+  "sand", 0.145,	2.68,	2.835701015,	2.404070105,	1.727907568,	1.241920756,	0.892621338,	0.64156497,	0.461120067,	0.33142663,
+  "loamy sand",	0.124,	2.28,	2.985300456,	2.786831249,	2.428599606,	2.116416646,	1.844363068,	1.607280463,	1.400673507	,1.220624725,
+  "sandy loam",	0.075,	1.89,	3.877062308,	3.887981894,	3.909913417,	3.931968652,	3.954148297,	3.976453055,	3.99888363,	4.021440733,
+  "loam",	0.036,	1.56,	5.461148294,	5.717656839,	6.267384221,	6.869965456,	7.530482208,	8.25450472,	9.04813879,	9.918077261,
+  "silt",	0.016,	1.37,	7.921450563,	8.17740073,	8.714378312,	9.286617088,	9.896432523,	10.54629213,	11.23882544,	11.97683468,
+  "silt loam",	0.02,	1.41,	7.102076072,	7.36793256,	7.929873994,	8.53467388,	9.185600968,	9.886173312,	10.64017728,	11.45168804,
+  "sandy clay loam",	0.059,	1.48,	3.210664375,	3.523317037,	4.242924983,	5.109506816,	6.153080717,	7.409795833,	8.923184468,	10.74567003,
+  "clay loam",	0.019,	1.31,	5.857534868,	6.109019857	,6.644844854,	7.227667312,	7.861609402,	8.55115485,	9.301180653,	10.11699157,
+  "silty clay loam",	0.01,	1.23,	7.893226504,	8.094056178,	8.511174841,	8.949789274,	9.41100724,	9.895993588,	10.4059732, 10.94223407,
+  "sandy clay",	0.027,	1.23,	3.336286539,	3.570465123,	4.089288008,	4.683500843,	5.364058513,	6.14350775,	7.036218449,	8.05864859,
+  "silty clay",	0.005,	1.09,	6.076318447,	6.169306877,	6.359574636,	6.555710448,	6.75789529,	6.96631572,	7.181164051,	7.402638524,
+  "clay",	0.008,	1.09,	3.998055794,	4.096398575,	4.300400644,	4.514562086,	4.739388843,	4.97541205,	5.223189295,	5.483305932)
+
+
+# create factors for texture ----------------------------------------------
+
+vg_parameters_bytexture_radius2.25 <-
+  vg_parameters_bytexture_radius2.25 %>%
+  mutate(texture = factor(
+    texture,
+    level = c(
+      "sand",
+      "loamy sand",
+      "sandy loam",
+      "loam",
+      "silt",
+      "silt loam",
+      "sandy clay loam",
+      "clay loam",
+      "silty clay loam",
+      "sandy clay",
+      "silty clay",
+      "clay"
+    )
+  )) %>%
+  pivot_longer(`0.5cm`:`7cm`,
+               names_to = "suction",
+               values_to = "suction_value_term")
+
+
+# function ----------------------------------------------------------------
+
+parameter_estimation <- function(dataset, col_name,...) {
+  dataset %>%
+    mutate(
+      sqrt_time = round(sqrt(time), 2),
+      volume_infiltrated = round(first(volume) - volume, 2),
+      infiltration = round(volume_infiltrated / (pi * 2.25 ^ 2), 2)
+    ) %>%
+    left_join(vg_parameters_bytexture_radius2.25) %>%
+    group_by(soil, suction, texture, n_ho, alpha) %>%
+    nest() %>%
+    mutate(fit = map(data, ~ lm(
+      infiltration ~ poly(sqrt_time, 2, raw = TRUE), data = .x
+    )),
+    tidied = map(fit, tidy)) %>%
+    unnest(tidied) %>%
+    filter(term == "poly(sqrt_time, 2, raw = TRUE)2") %>%
+    mutate(
+      suction_num = -as.numeric(parse_number(suction)),
+      parameter_A = (11.65*(`n_ho`^(0.1)-1)*exp(ifelse(`n_ho`<1.9,7.5,2.92)*(`n_ho`-1.9)*alpha*suction_num))/((alpha*2.25)^(0.91)),
+      parameter_C = estimate,
+      parameter_K = parameter_C / parameter_A
+    ) %>%
+    select(soil, suction, texture, alpha, n_ho, parameter_A, parameter_C, parameter_K)
+}
+
+
+
+infiltration_data %>%
+  group_by(soil) %>%
+  nest() %>%
+  mutate(infiltracion = map(data, ~ infiltration(.), data = .x
+  )) %>%
+  mutate(datos_experimento = map(data, ~ vg_par(.), data = .x
+  ))
