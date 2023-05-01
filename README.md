@@ -33,7 +33,7 @@ This function returns the parameter *A* calculated from the equation proposed by
 
 ![minidisc measurements in a forest](img/01_mini.png)
 
-While it is simple and easy to use, the data from Minidisc Infiltrometer must be processed in a reproducible manner. A common way is to use an [Excel macro](https://library.metergroup.com/Sales%20and%20Support/METER%20Environment/New-Minidisk-Infiltrometer-Macro.xlsx) provided by the supplier on their website, but for handling a large number of samples this can be complex. 
+While it is simple and easy to use, the data from Minidisc Infiltrometer must be processed in a reproducible manner. A common way is to use an [Excel macro](https://library.metergroup.com/Sales%20and%20Support/METER%20Environment/New-Minidisk-Infiltrometer-Macro.xlsx) provided by the supplier on their website, but for handling a large number of samples this can be complex. Minidisc infiltrometers have been [used](https://www.metergroup.com/en/meter-environment/products/mini-disk-infiltrometer-usaturated-hydraulic-conductivity) to understand infiltration in soils, hydrophobicity, irrigation system design, erosion and burn severity   
 
 ![minidisc measurements](img/02_mini.png)
 
