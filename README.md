@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of infiltrodiscR is to provide functions for the modeling of data derived from the Minidisc Infiltrometer device
+The goal of infiltrodiscR is to provide functions for the modeling of data derived from the Minidisk Infiltrometer device
 
 ## Instalation
 
@@ -33,14 +33,14 @@ This function returns the parameter *A* calculated from the equation proposed by
 
 ![minidisc measurements in a forest](img/01_mini.png)
 
-While it is simple and easy to use, the data from Minidisc Infiltrometer must be processed in a reproducible manner. A common way is to use an [Excel macro](https://library.metergroup.com/Sales%20and%20Support/METER%20Environment/New-Minidisk-Infiltrometer-Macro.xlsx) provided by the supplier on their website, but for handling a large number of samples this can be complex. Minidisc infiltrometers have been [used](https://www.metergroup.com/en/meter-environment/products/mini-disk-infiltrometer-usaturated-hydraulic-conductivity) to understand infiltration in soils, hydrophobicity, irrigation system design, erosion and burn severity.   
+While it is simple and easy to use, the data from Minidisk Infiltrometer must be processed in a reproducible manner. A common way is to use an [Excel macro](https://library.metergroup.com/Sales%20and%20Support/METER%20Environment/New-Minidisk-Infiltrometer-Macro.xlsx) provided by the supplier on their website, but for handling a large number of samples this can be complex. Minidisk infiltrometers have been [used](https://www.metergroup.com/en/meter-environment/products/mini-disk-infiltrometer-usaturated-hydraulic-conductivity) to understand infiltration in soils, hydrophobicity, irrigation system design, erosion and burn severity.   
 
 ![minidisc measurements](img/02_mini.png)
 
 ## Tutorial
 
 ### Step 1.
-To determine the unsaturated hydraulic conductivity at specific suctions, the Minidisc Infiltrometer data can be fitted to the method proposed by Zhang (1997). The first step is to calculate the cumulative infiltration vs. the square root of time.
+To determine the unsaturated hydraulic conductivity at specific suctions, the Minidisk Infiltrometer data can be fitted to the method proposed by Zhang (1997). The first step is to calculate the cumulative infiltration vs. the square root of time.
 
 
 ``` r
