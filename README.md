@@ -12,7 +12,7 @@ You can install the development version of infiltrodiscR from [GitHub](https://g
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Saryace/infiltrodiscR")
+devtools::install_github("biofisica/infiltrodiscR")
 ```
 
 ## Main functions:
