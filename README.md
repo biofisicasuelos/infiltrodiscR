@@ -2,9 +2,10 @@
 # infiltrodiscR
 
 <!-- badges: start -->
+[![DOI](https://zenodo.org/badge/625394704.svg)](https://zenodo.org/badge/latestdoi/625394704)
 <!-- badges: end -->
 
-The goal of infiltrodiscR is to provide functions for the modeling of data derived from the Minidisk Infiltrometer device
+The goal of infiltrodiscR is to provide functions for the modeling of data derived from the Minidisk Infiltrometer device. If you use this first version, please cite using this [DOI code](https://doi.org/10.5281/zenodo.8001894)
 
 ## Instalation
 
