@@ -17,8 +17,8 @@ devtools::install_github("biofisicasuelos/infiltrodiscR")
 ```
 
 ## What do you need?
-
-- soil texture according to USDA: as.character() and lowercase.
+Columns called:
+- texture: soil texture according to USDA: as.character() and lowercase, for example "clay loam".
 - suction: as.character() and lowercase, in this format: "2cm".
 - volume: volume recorded in the infiltration measurements in mL, as.numeric(). 
 - time: time recorded in the infiltration measurements in seconds, as.numeric(). 
