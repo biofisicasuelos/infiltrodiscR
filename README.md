@@ -5,16 +5,29 @@
 [![DOI](https://zenodo.org/badge/625394704.svg)](https://zenodo.org/badge/latestdoi/625394704)
 <!-- badges: end -->
 
-The goal of infiltrodiscR is to provide functions for the modeling of data derived from the Minidisk Infiltrometer device. If you use this first version, please cite using this [DOI code](https://doi.org/10.5281/zenodo.8001894)
+The goal of infiltrodiscR is to provide functions for the modeling of data derived from the Minidisk Infiltrometer device. If you use this package please cite using this [DOI code](https://doi.org/10.5281/zenodo.8001894)
 
-## Instalation
+## Installation
 
-You can install the development version of infiltrodiscR from [GitHub](https://github.com/Saryace/infiltrodiscR) with:
+You can install the infiltrodiscR v1.0 from [GitHub](https://github.com/biofisicasuelos/infiltrodiscR) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("biofisicasuelos/infiltrodiscR")
 ```
+
+## What do you need?
+
+- soil texture according to USDA: as.character() and lowercase.
+- suction: as.character() and lowercase, in this format: "2cm".
+- volume: volume recorded in the infiltration measurements in mL, as.numeric(). 
+- time: time recorded in the infiltration measurements in seconds, as.numeric(). 
+
+
+## More info
+
+- In the [lab's YT channel](https://www.youtube.com/@laboratoriobiofisicadesuel2912), we uploaded short sessions [ES] about data wrangling and the package.
+- Slides [EN] explaining the package are available [here](saryace.github.io/intro_to_minidisk)
 
 ## Main functions:
 
@@ -28,13 +41,17 @@ This function returns the parameter *A*, *no_h* and *alpha* related to the van G
 
 **`parameter_A`**
 
-This function returns the parameter *A* calculated from the equation proposed by Zhang (1997)
+This function returns the parameter *A* calculated from the equation proposed by [Zhang (1997)](https://doi.org/10.2136/sssaj1997.03615995006100060008x). 
 
 ## Introduction
 
 ![minidisc measurements in a forest](img/01_mini.png)
 
-While it is simple and easy to use, the data from Minidisk Infiltrometer must be processed in a reproducible manner. A common way is to use an [Excel macro](https://library.metergroup.com/Sales%20and%20Support/METER%20Environment/New-Minidisk-Infiltrometer-Macro.xlsx) provided by the supplier on their website, but for handling a large number of samples this can be complex. Minidisk infiltrometers have been [used](https://www.metergroup.com/en/meter-environment/products/mini-disk-infiltrometer-usaturated-hydraulic-conductivity) to understand infiltration in soils, hydrophobicity, irrigation system design, erosion and burn severity.   
+### Minidisk infiltrometer
+Minidisk infiltrometers have been [used](https://www.metergroup.com/en/meter-environment/products/mini-disk-infiltrometer-usaturated-hydraulic-conductivity) to understand infiltration in soils, hydrophobicity, irrigation system design, erosion and burn severity.   
+
+### Motivation
+While it is simple and easy to use, the data from Minidisk Infiltrometer must be processed in a reproducible manner. A common way is to use an [Excel macro](https://library.metergroup.com/Sales%20and%20Support/METER%20Environment/New-Minidisk-Infiltrometer-Macro.xlsx) provided by the supplier on their website, but for handling a large number of samples this can be complex. 
 
 ![minidisc measurements](img/02_mini.png)
 
@@ -66,7 +83,7 @@ infilt_cum_sqrt
 ```
 
 ### Step 2.
-Now thee Van Genuchten parameters n, alpha and A are extracted from the Minidisk Infiltrometer Table (Decagon Devices, Inc., 2005). The radius (2.25 cm) corresponds to the Minidisk Infiltrometer specs. 
+Now three Van Genuchten parameters: n, alpha and A are extracted from the Minidisk Infiltrometer Table (Decagon Devices, Inc., 2005). The radius (2.25 cm) corresponds to the Minidisk Infiltrometer specs. 
 
 ``` r
 parameters <- vg_par(texture = c("clay", "sand"),
