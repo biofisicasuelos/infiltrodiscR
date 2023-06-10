@@ -27,7 +27,7 @@ devtools::install_github("biofisicasuelos/infiltrodiscR")
 ## More info
 
 - In the [lab's YT channel](https://www.youtube.com/@laboratoriobiofisicadesuel2912), we uploaded short sessions [ES] about data wrangling and the package.
-- Slides [EN] explaining the package are available [here](saryace.github.io/intro_to_minidisk)
+- Slides [EN] explaining the package are available [here](https://saryace.github.io/intro_to_minidisk)
 
 ## Main functions:
 
