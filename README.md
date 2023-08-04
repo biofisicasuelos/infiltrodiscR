@@ -23,7 +23,6 @@ Columns called:
 - volume: volume recorded in the infiltration measurements in mL, as.numeric(). 
 - time: time recorded in the infiltration measurements in seconds, as.numeric(). 
 
-
 ## More info
 
 - In the [lab's YT channel](https://www.youtube.com/@laboratoriobiofisicadesuel2912), we uploaded short sessions [ES] about data wrangling and the package.
@@ -86,15 +85,18 @@ infilt_cum_sqrt
 Now three Van Genuchten parameters: n, alpha and A are extracted from the Minidisk Infiltrometer Table (Decagon Devices, Inc., 2005). The radius (2.25 cm) corresponds to the Minidisk Infiltrometer specs. 
 
 ``` r
-parameters <- vg_par(texture = c("clay", "sand"),
-                     suction = c("2cm", "3cm"))
+soil_data <- tibble(soil = c("soil_a", "soil_b"),
+                    texture = c("sandy loam", "clay loam"), #USDA
+                    suction = c("4cm","2cm"),
+                    om_content = c(1,10))
 
 infilt_cum_sqrt_par <-
-infiltration_data %>% 
-group_by(soil) %>% 
-nest() %>% 
-mutate(data = map(data, ~ infiltration(.), data = .x)) %>% 
-bind_cols(parameters)
+  infiltration_data %>%
+  group_by(soil) %>% 
+  nest() %>% 
+  left_join(soil_data) %>%
+  infiltrodiscR::vg_par() %>%
+  mutate(data = map(data, ~ infiltration(.), data = .x)) 
 
 infilt_cum_sqrt_par
 ```
@@ -127,7 +129,8 @@ The hydraulic conductivity of the soil K at a specific suctions is calculated as
 
 ``` r
 parameter_A(infilt_cum_sqrt_par_fit) %>% 
- mutate(K_h = C1 / parameter_A)
+mutate(K_h = C1 / parameter_A) %>% 
+select(K_h)
 ```
 
 You can check that the values of A from the equation and the table are equivalent. 
