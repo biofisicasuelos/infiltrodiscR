@@ -2,10 +2,12 @@ Package: infiltrodiscR
 Title: InfiltrodiscR: functions for Minidisc Infiltrometer device data
 Version: 0.0.0.9000
 Authors@R: 
-    person("Sara", "Acevedo", "seaceved@uc.cl", role = c("aut", "cre"),
+    person("Carolina V.", "Giraldo", "carolinav.giraldo@uc.cl", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0003-3203-2106"))
-    person("First2", "Last2", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+    person("Sara E.", "Acevedo", "seaceved@uc.cl", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0003-3203-2106"))
+    person("Carlos A.", "Bonilla", , "carlos.bonilla@oregonstate.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0003-3107-999X"))
 Description: infiltrodiscR provides functions for the modeling of data derived from the Minidisc Infiltrometer device
 License: MIT + file LICENSE
 Encoding: UTF-8

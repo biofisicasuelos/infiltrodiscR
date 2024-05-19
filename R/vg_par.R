@@ -14,14 +14,18 @@
 
 # function ----------------------------------------------------------------
 
-vg_par <- function(suction, texture,...) {
-  library(tidyverse)
-  vg_parameters_bytexture %>%
-    pivot_longer(`0.5cm`:`7cm`,
-                 names_to = "suction",
-                 values_to = "value_A") %>%
-    filter(texture == {{texture}} & suction == {{suction}})
-}
+vg_par <- function(dataset, col_name, ...) {
 
+# join data nested with the VG parameter
+dataset_join <- left_join(dataset, vg_parameters_bytexture)
+
+dataset_pivoted <- pivot_longer(dataset_join,
+                                `0.5cm`:`7cm`,
+                                names_to = "tabulated_cm",
+                                values_to = "value_A")
+#select data tabulated
+filtered_data <- subset(dataset, suction == tabulated_cm, select = -tabulated_cm)
+
+}
 
 
