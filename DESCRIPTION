@@ -18,6 +18,9 @@ Suggests:
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
-    tidyverse
-Imports: tidyverse
+    tidyr
+    dplyr
+Imports: 
+    tidyr
+    dplyr
 LazyData: true
