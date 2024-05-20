@@ -16,6 +16,8 @@
 
 vg_par <- function(dataset, n_ho, alpha, ...) {
 
+data(vg_parameters_bytexture)
+
 # join data nested with the VG parameter
 dataset_join <- left_join(dataset, vg_parameters_bytexture)
 
