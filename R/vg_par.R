@@ -26,8 +26,8 @@ dataset_pivoted <- pivot_longer(dataset_join,
                                 names_to = "tabulated_cm",
                                 values_to = "value_A")
 #select data tabulated
-filtered_data <- subset(dataset_pivoted, suction == dataset_pivoted$tabulated_cm,
-                        select = -dataset_pivoted$tabulated_cm)
+filtered_data <- subset(dataset_pivoted, suction == tabulated_cm,
+                        select = -tabulated_cm)
 
 # return filtered_data
 
