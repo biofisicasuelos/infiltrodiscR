@@ -28,4 +28,3 @@ filtered_data <- subset(dataset, suction == tabulated_cm, select = -tabulated_cm
 
 }
 
-
