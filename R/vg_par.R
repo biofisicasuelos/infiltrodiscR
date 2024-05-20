@@ -14,7 +14,7 @@
 
 # function ----------------------------------------------------------------
 
-vg_par <- function(dataset, ...) {
+vg_par <- function(dataset, col_name) {
 
 data(vg_parameters_bytexture)
 
