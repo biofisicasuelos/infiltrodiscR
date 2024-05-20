@@ -14,7 +14,7 @@
 
 # function ----------------------------------------------------------------
 
-vg_par <- function(dataset, col_name, ...) {
+vg_par <- function(dataset, n_ho, alpha, ...) {
 
 # join data nested with the VG parameter
 dataset_join <- left_join(dataset, vg_parameters_bytexture)
@@ -24,7 +24,7 @@ dataset_pivoted <- pivot_longer(dataset_join,
                                 names_to = "tabulated_cm",
                                 values_to = "value_A")
 #select data tabulated
-filtered_data <- subset(dataset, suction == tabulated_cm, select = -tabulated_cm)
+filtered_data <- subset(dataset_pivoted, suction == tabulated_cm, select = -tabulated_cm)
 
 }
 
