@@ -19,9 +19,9 @@ vg_par <- function(dataset, col_name) {
 data(vg_parameters_bytexture)
 
 # join data nested with the VG parameter
-dataset_join <- left_join(dataset, vg_parameters_bytexture)
+dataset_join <- dplyr::left_join(dataset, vg_parameters_bytexture)
 
-dataset_pivoted <- pivot_longer(dataset_join,
+dataset_pivoted <- tidyr::pivot_longer(dataset_join,
                                 `0.5cm`:`7cm`,
                                 names_to = "tabulated_cm",
                                 values_to = "value_A")
