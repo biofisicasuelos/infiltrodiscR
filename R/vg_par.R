@@ -28,4 +28,3 @@ filtered_data <- subset(dataset_pivoted, suction == tabulated_cm, select = -tabu
 
 }
 
-
