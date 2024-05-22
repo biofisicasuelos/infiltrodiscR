@@ -15,11 +15,16 @@
 #'            83, 77, 64, 61, 58, 45, 42, 35, 29, 17, 15)))
 
 infiltration <- function(dataset, col_name, ...) {
-  library(tidyverse)
-  dataset %>%
-    mutate(sqrt_time = round(sqrt(time),2),
-          volume_infiltrated = round(first(volume) - volume, 2),
-          infiltration = round(volume_infiltrated / (pi * 2.25 ^ 2),2))
+  # Calculate sqrt_time
+  dataset$sqrt_time <- round(sqrt(dataset$time), 2)
+  
+  # Calculate volume_infiltrated
+  dataset$volume_infiltrated <- round(dataset$volume[1] - dataset$volume, 2)
+  
+  # Calculate infiltration
+  dataset$infiltration <- round(dataset$volume_infiltrated / (pi * 2.25 ^ 2), 2)
+  
+  return(dataset)
 }
 
 

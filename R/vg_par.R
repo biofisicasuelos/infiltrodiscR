@@ -14,15 +14,24 @@
 
 # function ----------------------------------------------------------------
 
-vg_par <- function(dataset, col_name, ...) {
-  library(tidyverse)
-  dataset %>%
-    left_join(vg_parameters_bytexture) %>%
-    pivot_longer(`0.5cm`:`7cm`,
-                 names_to = "tabulated_cm",
-                 values_to = "value_A") %>%
-    filter(suction == tabulated_cm) %>%
-    dplyr::select(-tabulated_cm)
-}
+vg_par <- function(dataset, col_name) {
 
+data(vg_parameters_bytexture)
+
+# join data nested with the VG parameter
+dataset_join <- dplyr::left_join(dataset, vg_parameters_bytexture)
+
+dataset_pivoted <- tidyr::pivot_longer(dataset_join,
+                                `0.5cm`:`7cm`,
+                                names_to = "tabulated_cm",
+                                values_to = "value_A")
+#select data tabulated
+filtered_data <- subset(dataset_pivoted, suction == tabulated_cm,
+                        select = -tabulated_cm)
+
+# return filtered_data
+
+return(filtered_data)
+
+}
 
