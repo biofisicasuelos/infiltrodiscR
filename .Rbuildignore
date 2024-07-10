@@ -5,3 +5,7 @@
 ^dev$
 ^revdep$
 ^cran-comments\.md$
+^CRAN-SUBMISSION$
+^pkgdown$
+^_pkgdown\.yml$
+^docs$

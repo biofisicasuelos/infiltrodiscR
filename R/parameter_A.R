@@ -1,15 +1,16 @@
 #' Calculates parameter A from (Philip, 1957)
 #'
-#' @param  dataset tibble or dataset
-#' @param  col_name including suction, n_ho, alpha and suction
+#' @param dataset A [tibble()] or [data.frame()] including n_ho, alpha and suction
+#' @param col_name [vars()] including n_ho, alpha and suction
 #'
-#' @return A tibble giving two new columns: suction_num,
+#' @return A [tibble()] giving two new columns: suction_num,
 #'    and parameter_A
+#'
 #' @export
 #' @examples
-#' parameter_A(tibble(alpha = c(0.145, 0.008), n_ho = c(2.68, 1.09),suction = c("2cm","3cm")))
+#' parameter_A(data.frame(alpha = c(0.145, 0.008), n_ho = c(2.68, 1.09),suction = c("2cm","3cm")))
 
-parameter_A <- function(dataset, col_name, ...) {
+parameter_A <- function(dataset, col_name) {
   # Parse suction for numeric calculations
   dataset$suction_num <- -as.numeric(gsub("[^0-9.-]", "", dataset$suction))
 

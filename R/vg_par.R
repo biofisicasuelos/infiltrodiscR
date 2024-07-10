@@ -3,20 +3,21 @@
 #' Infiltrometer (Decagon Devices, Inc., 2005).
 #' 12 soil texture classes and suction from
 #' 0.5 to 7 cm are tabulated
-#' @param  suction a chr or vector of chr
-#' @param  texture a chr or vector of chr
+#' @param dataset A [tibble()] or [data.frame()] including suction and texture
+#' @param col_name [vars()] including suction and texture
 #' @return A tibble giving three new columns: n_ho,
-#'    alpha and value
+#'    alpha and A value
 #' @export
 #' @examples
-#' vg_par(tibble(suction = c("2cm", "3cm"), texture = c("sand", "clay")))
+#' vg_par(data.frame(suction = c("2cm", "3cm"), texture = c("sand", "clay")))
 
 
 # function ----------------------------------------------------------------
 
 vg_par <- function(dataset, col_name) {
 
-data(vg_parameters_bytexture)
+suction <- tabulated_cm <- "0.5cm" <- "7cm" <- NULL
+
 
 # join data nested with the VG parameter
 dataset_join <- dplyr::left_join(dataset, vg_parameters_bytexture)

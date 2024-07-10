@@ -9,8 +9,10 @@ Authors@R: c(
     person("Carlos A.", "Bonilla", , "carlos.bonilla@oregonstate.edu", role = "aut",
            comment = c(ORCID = "https://orcid.org/0000-0003-3107-999X"))
   )
-Description: infiltrodiscR provides functions for the modeling of data
-    derived from the Minidisc Infiltrometer device
+Description: A set of functions for the modeling of data
+    derived from the Minidisc Infiltrometer device.  It calculates
+    cumulative infiltration and square root of time.  Also, it calculates
+    the A parameter based on soil physical properties.
 License: MIT + file LICENSE
 Depends: 
     R (>= 2.10)

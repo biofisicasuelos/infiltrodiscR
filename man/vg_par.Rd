@@ -11,13 +11,13 @@ Infiltrometer (Decagon Devices, Inc., 2005).
 vg_par(dataset, col_name)
 }
 \arguments{
-\item{suction}{a chr or vector of chr}
+\item{dataset}{A \code{\link[=tibble]{tibble()}} or \code{\link[=data.frame]{data.frame()}} including suction and texture}
 
-\item{texture}{a chr or vector of chr}
+\item{col_name}{\code{\link[=vars]{vars()}} including suction and texture}
 }
 \value{
 A tibble giving three new columns: n_ho,
-alpha and value
+alpha and A value
 }
 \description{
 Tabulated VG parameters
@@ -27,5 +27,5 @@ Infiltrometer (Decagon Devices, Inc., 2005).
 0.5 to 7 cm are tabulated
 }
 \examples{
-vg_par(tibble(suction = c("2cm", "3cm"), texture = c("sand", "clay")))
+vg_par(data.frame(suction = c("2cm", "3cm"), texture = c("sand", "clay")))
 }

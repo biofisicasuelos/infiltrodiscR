@@ -4,20 +4,20 @@
 \alias{parameter_A}
 \title{Calculates parameter A from (Philip, 1957)}
 \usage{
-parameter_A(dataset, col_name, ...)
+parameter_A(dataset, col_name)
 }
 \arguments{
-\item{dataset}{tibble or dataset}
+\item{dataset}{A \code{\link[=tibble]{tibble()}} or \code{\link[=data.frame]{data.frame()}} including n_ho, alpha and suction}
 
-\item{col_name}{including suction, n_ho, alpha and suction}
+\item{col_name}{\code{\link[=vars]{vars()}} including n_ho, alpha and suction}
 }
 \value{
-A tibble giving two new columns: suction_num,
+A \code{\link[=tibble]{tibble()}} giving two new columns: suction_num,
 and parameter_A
 }
 \description{
 Calculates parameter A from (Philip, 1957)
 }
 \examples{
-parameter_A(tibble(alpha = c(0.145, 0.008), n_ho = c(2.68, 1.09),suction = c("2cm","3cm")))
+parameter_A(data.frame(alpha = c(0.145, 0.008), n_ho = c(2.68, 1.09),suction = c("2cm","3cm")))
 }

@@ -6,15 +6,15 @@
 Using time and volume from field spreadsheets, the
 Cumulative infiltration and sqrt of time are calculated}
 \usage{
-infiltration(dataset, col_name, ...)
+infiltration(dataset, col_name)
 }
 \arguments{
-\item{dataset}{tibble or dataset}
+\item{dataset}{A \code{\link[=tibble]{tibble()}} or \code{\link[=data.frame]{data.frame()}} including time and volume}
 
-\item{col_name}{including time and volume}
+\item{col_name}{\code{\link[=vars]{vars()}} including time and volume}
 }
 \value{
-A tibble giving three new columns: sqrt_time,
+A \code{\link[=tibble]{tibble()}} giving three new columns: sqrt_time,
 volume_infiltrated and infiltration
 }
 \description{
@@ -23,7 +23,7 @@ Using time and volume from field spreadsheets, the
 Cumulative infiltration and sqrt of time are calculated
 }
 \examples{
-infiltration(tibble(time = c(0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300,
+infiltration(data.frame(time = c(0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300,
 0, 35, 65, 95, 125, 155, 185, 215, 245, 275, 305),
 volume = c(95, 89, 86, 83, 80, 77, 74, 73, 71, 69, 67,
            83, 77, 64, 61, 58, 45, 42, 35, 29, 17, 15)))
