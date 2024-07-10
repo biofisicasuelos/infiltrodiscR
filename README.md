@@ -9,16 +9,22 @@ The goal of infiltrodiscR is to provide functions for the modeling of data deriv
 
 ## Installation
 
-You can install the infiltrodiscR v1.0 from [GitHub](https://github.com/biofisicasuelos/infiltrodiscR) with:
+You can install the infiltrodiscR package from [GitHub](https://github.com/biofisicasuelos/infiltrodiscR) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("biofisicasuelos/infiltrodiscR")
 ```
 
+or install it from CRAN
+
+``` r
+install.packages("infiltrodiscR")
+```
+
 ## What do you need?
-Columns called:
-- texture: soil texture according to USDA: as.character() and lowercase, for example "clay loam".
+A dataframe or tibble with the following columns:
+- texture: soil texture according to USDA: as.character() and lowercase, for example: "clay loam".
 - suction: as.character() and lowercase, in this format: "2cm".
 - volume: volume recorded in the infiltration measurements in mL, as.numeric(). 
 - time: time recorded in the infiltration measurements in seconds, as.numeric(). 
