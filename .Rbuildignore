@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^infiltrodiscR\.Rproj$
 ^LICENSE\.md$
+^dev$
+^revdep$
+^cran-comments\.md$

@@ -32,7 +32,7 @@ A dataframe or tibble with the following columns:
 ## More info
 
 - In the [lab's YT channel](https://www.youtube.com/@laboratoriobiofisicadesuel2912), we uploaded short sessions [ES] about data wrangling and the package.
-- Slides [EN] explaining the package are available [here](https://saryace.github.io/intro_to_minidisk)
+- Slides [EN] explaining the package are available [here](https://saryace.github.io/intro_to_minidisk/)
 
 ## Main functions:
 
@@ -53,7 +53,7 @@ This function returns the parameter *A* calculated from the equation proposed by
 ![minidisc measurements in a forest](img/01_mini.png)
 
 ### Minidisk infiltrometer
-Minidisk infiltrometers have been [used](https://www.metergroup.com/en/meter-environment/products/mini-disk-infiltrometer-usaturated-hydraulic-conductivity) to understand infiltration in soils, hydrophobicity, irrigation system design, erosion and burn severity.   
+Minidisk infiltrometers have been [used](https://metergroup.com/products/mini-disk-infiltrometer/) to understand infiltration in soils, hydrophobicity, irrigation system design, erosion and burn severity.   
 
 ### Motivation
 While it is simple and easy to use, the data from Minidisk Infiltrometer must be processed in a reproducible manner. A common way is to use an [Excel macro](https://library.metergroup.com/Sales%20and%20Support/METER%20Environment/New-Minidisk-Infiltrometer-Macro.xlsx) provided by the supplier on their website, but for handling a large number of samples this can be complex. 

@@ -1,3 +1,4 @@
+library(tibble)
 
 infiltration_test <-
   tibble(

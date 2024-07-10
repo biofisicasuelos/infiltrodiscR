@@ -8,7 +8,7 @@ Infiltrometer (Decagon Devices, Inc., 2005).
 12 soil texture classes and suction from
 0.5 to 7 cm are tabulated}
 \usage{
-vg_par(suction, texture, ...)
+vg_par(dataset, col_name)
 }
 \arguments{
 \item{suction}{a chr or vector of chr}
@@ -27,5 +27,5 @@ Infiltrometer (Decagon Devices, Inc., 2005).
 0.5 to 7 cm are tabulated
 }
 \examples{
-vg_par(suction = c("2cm", "3cm"), texture = c("sand", "clay"))
+vg_par(tibble(suction = c("2cm", "3cm"), texture = c("sand", "clay")))
 }

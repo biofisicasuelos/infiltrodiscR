@@ -9,7 +9,7 @@
 #'    alpha and value
 #' @export
 #' @examples
-#' vg_par(suction = c("2cm", "3cm"), texture = c("sand", "clay"))
+#' vg_par(tibble(suction = c("2cm", "3cm"), texture = c("sand", "clay")))
 
 
 # function ----------------------------------------------------------------

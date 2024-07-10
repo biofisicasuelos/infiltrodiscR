@@ -1,25 +1,28 @@
 Package: infiltrodiscR
 Title: functions for Minidisc Infiltrometer device data
-Version: 0.0.0.9000
-Authors@R: 
-    c(person("Carolina V.", "Giraldo", email = "carolinav.giraldo@uc.cl", role = "aut",
+Version: 0.0.1
+Authors@R: c(
+    person("Carolina V.", "Giraldo", , "carolinav.giraldo@uc.cl", role = "aut",
            comment = c(ORCID = "https://orcid.org/0000-0003-3203-2106")),
-    person("Sara E.", "Acevedo", email = "seaceved@uc.cl", role = c("aut", "cre"),
+    person("Sara E.", "Acevedo", , "seaceved@uc.cl", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0003-3203-2106")),
-    person("Carlos A.", "Bonilla", email = "carlos.bonilla@oregonstate.edu", role = "aut",
-           comment = c(ORCID = "https://orcid.org/0000-0003-3107-999X")))
-Description: infiltrodiscR provides functions for the modeling of data derived from the Minidisc Infiltrometer device
+    person("Carlos A.", "Bonilla", , "carlos.bonilla@oregonstate.edu", role = "aut",
+           comment = c(ORCID = "https://orcid.org/0000-0003-3107-999X"))
+  )
+Description: infiltrodiscR provides functions for the modeling of data
+    derived from the Minidisc Infiltrometer device
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
 Imports: 
-    tidyr,
     dplyr,
-    tibble
+    tidyr
+Suggests: 
+    testthat (>= 3.0.0),
+    tibble,
+    tidyverse
+Config/testthat/edition: 3
+Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
